@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Url</title>
+    <!-- Latest compiled and minified CSS -->
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css"
+    />
+
+    <!-- jQuery library -->
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.6.0/dist/jquery.slim.min.js"></script>
+
+    <!-- Popper JS -->
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
+
+    <!-- Latest compiled JavaScript -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/js/bootstrap.bundle.min.js"></script>
+    <link
+      rel="stylesheet"
+      href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css"
+    />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+    <style>
+      #name {
+        color: #17202a;
+      }
+      #submit_url {
+        margin-top: 15px;
+      }
+      #copy_url {
+        margin-top: 15px;
+      }
+      #co_url {
+        margin-top: 15px;
+      }
+    </style>
+  </head>
+  <body style="background-color:powderblue;">
+    <nav class="navbar navbar-expand-sm bg-primary navbar-dark">
+      <!-- Links -->
+      <ul class="nav justify-content-center">
+        <li class="nav-item">
+          <a class="nav-link" href="{{url_for('home')}}" id="name">Home</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="{{url_for('history')}}" id="name">History</a>
+        </li>
+      </ul>
+    </nav>
+    <center>
+      <h1 style="color:blue"><b><u>URL Shorten Website</u></b></h1><br><br><br><br>
+    </center>
+    <div class="container">
+      <form action="/" method="post">
+        <div class="form-outline">
+          <input
+            type="text"
+            name="name"
+            class="form-control"
+            placeholder="Enter the URL to be Shorten"
+            required
+          />
+        </div>
+        <button type="submit" class="btn btn-primary" id="submit_url">
+          Shorten URL
+        </button>
+        <div class="form-outline">
+          <input type="text" class="form-control" id="co_url" value="{{s_url}}" />
+        </div>
+        <button
+          type="submit"
+          class="btn btn-success"
+          id="copy_url"
+          onclick="myFunction()"
+        >
+          Copy URL
+        </button>
+      </form>
+    </div>
+    <script>
+      function myFunction() {
+        var copyText = document.getElementById("co_url");
+        copyText.select();
+        copyText.setSelectionRange(0, 99999);
+        navigator.clipboard.writeText(copyText.value);
+        alert("URL Copied Successfully!!!");
+      }
+    </script>
+  </body>
+</html>
